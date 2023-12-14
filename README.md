@@ -25,7 +25,8 @@ pyOpenGL
 ## Use
 
 ### Data importation
-You needed to import your data in the used classes, by following the schem ```array[time_index, particle_index, other]```. 
+You needed to import your data in the used classes, by following this schem. 
+
 
 1. Create data class :
 
@@ -41,13 +42,16 @@ You needed to import your data in the used classes, by following the schem ```ar
    
 3. Import particles data :
 
-  States reffer to the different textures you want to apply to particles. 
-  Better to adimentionalize particle size (radius) and position by the mean particle size.
+  States reffer to the different textures you want to apply to particles. By default the first texture (`0.png`) is applyied, then state[0] is for the second texture (`1.png`), etc... 
+  
+&emsp; *You Better adimentionalize particle size (radius) and position by the mean particle size.*
    
   ```ruby
   data_class_name.get_particles(array_of_state_name       [state_index],                                       #str
                                 array_of_state            [time_index, particle_index, state_index],           #bool
+
                                 array_of_particles_radius [particle_index],                                    #float
+
                                 array_of_position         [time_index, particle_index, coord_index],           #float
                                 array_of_orientation      [time_index, particle_index, angle:axis_coord_index],#float
                                 array_of_velocity         [time_index, particle_index, coord_index],           #float
@@ -95,7 +99,7 @@ By default 3 textures are aviable (`0.png`, `1.png`, `2.png`). More texture can 
 
 Note that the ```gl3Dc.texture``` class will load every file with ```.png``` extention present in ```./gl3Dview/texture``` and sort it by alphabetic order.
 
-*Be carefull loading to heavy texture will result of a lack of fluidity.*
+&emsp; *Be carefull loading to heavy texture will result of a lack of fluidity.*
 
 
 
