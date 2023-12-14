@@ -42,7 +42,7 @@ You needed to import your data in the used classes, by following this schem.
    
 3. Import particles data :
 
-`[index_1, index_2]` represent array with index in order.
+`[index_1, index_2, etc]` represent array with index in order.
 
 `states_type` is the list name of the differents state.
 `states` is the differents state for each particles for each time step.
