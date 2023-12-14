@@ -113,7 +113,7 @@ By default 3 textures are aviable (`0.png`, `1.png`, `2.png`). More texture can 
 
 Note that the ```gl3Dc.texture``` class will load every file with ```.png``` extention present in ```./gl3Dview/texture``` and sort it by alphabetic order.
 
-&emsp; *Be carefull loading to heavy texture will result of a lack of fluidity.*
+&emsp; *Be carefull loading heavy texture will result of a lack of fluidity.*
 
 
 
