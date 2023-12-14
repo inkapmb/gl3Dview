@@ -36,28 +36,39 @@ You needed to import your data in the used classes, by following this schem.
 
 2. Import time data :
   ```ruby
-  data_class_name.get_time(time_step,                    #float
-                           time_index_array[time_index]) #int
+  data_class_name.get_time(time_step,                 #float
+                           time_index = [time_index]) #int
   ```
    
 3. Import particles data :
 
-  States reffer to the different textures you want to apply to particles. By default the first texture (`0.png`) is applyied, then state[0] is for the second texture (`1.png`), etc... 
+`[index_1, index_2]` represent array with index in order.
+
+`states_type` is the list name of the differents state.
+`states` is the differents state for each particles for each time step.
+`radius` is the particles radius for ech particles.
+`positions` is the position of each particles for each time step.
+`orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
+
+*Unsed for the moment :
+`velocities` is the velocities of each particles at each time step.
+`rotation_velocities` is the rotation velocities of each particles at each time step.
+`forces` is the forces of each particles at each time step.
+`torques` is the torques of each particles at each time step.*
+
   
-&emsp; *You Better adimentionalize particle size (radius) and position by the mean particle size.*
+&emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
    
   ```ruby
-  data_class_name.get_particles(array_of_state_name       [state_index],                                       #str
-                                array_of_state            [time_index, particle_index, state_index],           #bool
-
-                                array_of_particles_radius [particle_index],                                    #float
-
-                                array_of_position         [time_index, particle_index, coord_index],           #float
-                                array_of_orientation      [time_index, particle_index, angle:axis_coord_index],#float
-                                array_of_velocity         [time_index, particle_index, coord_index],           #float
-                                array_of_rotation_velocity[time_index, particle_index, coord_index],           #float
-                                array_of_force            [time_index, particle_index, coord_index],           #float
-                                array_of_torque           [time_index, particle_index, coord_index])           #float
+  data_class_name.get_particles(states_type =         [state_index],                                        #str
+                                states =              [time_index, particle_index, state_index],            #bool
+                                radius =              [particle_index],                                     #float
+                                positions =           [time_index, particle_index, coord_index],            #float
+                                orientations =        [time_index, particle_index, angle:axis_coord_index], #float
+                                velocities =          [time_index, particle_index, coord_index],            #float
+                                rotation_velocities = [time_index, particle_index, coord_index],            #float
+                                forces =              [time_index, particle_index, coord_index],            #float
+                                torques =             [time_index, particle_index, coord_index])            #float
   ```
 
 4. Import data interactions (in comming) :
@@ -92,6 +103,9 @@ gl3f.main(data_class_name,
           restartTimeKey = pygame.K_s, #115   #int
          )
 ```
+## Texture and State
+
+States reffer to the different textures you want to apply to particles. By default the first texture (`0.png`) is applyied, then state[0] is for the second texture (`1.png`), etc... 
 
 ### Add More texture
 
