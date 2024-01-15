@@ -37,8 +37,8 @@ You needed to import your data in the used classes, by following this schem.
 
 2. Import time data :
   ```ruby
-  data_class_name.get_time(dt =         #float time_step,    
-                           time_index = #numpy.int[time_index])
+  data_class_name.get_time(dt =         float -> time_step,    
+                           time_index = numpy.int[time_index])
   ```
    
 3. Import particles data :
