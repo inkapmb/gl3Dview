@@ -26,6 +26,7 @@ pyOpenGL
 
 ### Data importation
 You needed to import your data in the used classes, by following this schem. 
+`int[index_1, index_2, etc]` represent array with type and index in order.
 
 
 1. Create data class :
@@ -36,18 +37,20 @@ You needed to import your data in the used classes, by following this schem.
 
 2. Import time data :
   ```ruby
-  data_class_name.get_time(time_step,                 #float
-                           time_index = [time_index]) #int
+  data_class_name.get_time(dt =         #float time_step,    
+                           time_index = #numpy.int[time_index])
   ```
    
 3. Import particles data :
 
-`[index_1, index_2, etc]` represent array with index in order.
-
 `states_type` is the list name of the differents state.
-`states` is the differents state for each particles for each time step.
+
+`states` is the differents state for each particles for each time step, default state is `''`.
+
 `radius` is the particles radius for ech particles.
+
 `positions` is the position of each particles for each time step.
+
 `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
 *Unsed for the moment :
@@ -60,21 +63,32 @@ You needed to import your data in the used classes, by following this schem.
 &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
    
   ```ruby
-  data_class_name.get_particles(states_type =         [state_index],                                        #str
-                                states =              [time_index, particle_index, state_index],            #bool
-                                radius =              [particle_index],                                     #float
-                                positions =           [time_index, particle_index, coord_index],            #float
-                                orientations =        [time_index, particle_index, angle:axis_coord_index], #float
-                                velocities =          [time_index, particle_index, coord_index],            #float
-                                rotation_velocities = [time_index, particle_index, coord_index],            #float
-                                forces =              [time_index, particle_index, coord_index],            #float
-                                torques =             [time_index, particle_index, coord_index])            #float
+  data_class_name.get_particles(states_type =          numpy.str[state_index],
+                                states =               numpy.str[time_index, particle_index],
+                                radius =               numpy.float[particle_index],
+                                positions =            numpy.float[time_index, particle_index, coord_index],
+                                orientations =         numpy.float[time_index, particle_index, angle:axis_coord_index],
+                                #velocities =          numpy.float[time_index, particle_index, coord_index],
+                                #rotation_velocities = numpy.float[time_index, particle_index, coord_index],
+                                #forces =              numpy.float[time_index, particle_index, coord_index],
+                                #torques =             numpy.float[time_index, particle_index, coord_index])
   ```
 
 4. Import data interactions (in comming) :
 
+   `inrtsPid` is the index of particles involve in this interaction.
+
+   `intrsNorm` is the norm of the interction (unit vector in between the two particles).
+
+   `intrsNF` is the normal force of the interaction.
+
+   `intrsSF` is the shear force of teh interaction.
+
   ```ruby
-  data_class_name.get_interactions()
+  data_class_name.get_interactions(intrsPid =  [time_index][interactions_index] -> numpy.int[p1_index, p2_index],
+                                   intrsNorm = [time_index][interactions_index] -> numpy.float[coord_index],
+                                   intrsNF =   [time_index][interactions_index] -> numpy.float[coord_index],
+                                   intrsSF =   [time_index][interactions_index] -> numpy.float[coord_index],)
   ```
 
 ### Display 3D View
