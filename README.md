@@ -43,12 +43,12 @@ You needed to import your data in the used classes, by following this schem.
   ```
    
 3. Import **particles** data :
-
-+ `states_type` is the list name of the differents state.
-+ `states` is the differents state for each particles for each time step, default state is `''`.
-+ `radius` is the particles radius for ech particles.
-+ `positions` is the position of each particles for each time step.
-+ `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
+    
+    + `states_type` is the list name of the differents state.
+    + `states` is the differents state for each particles for each time step, default state is `''`.
+    + `radius` is the particles radius for ech particles.
+    + `positions` is the position of each particles for each time step.
+    + `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
 Unsed for the moment :  <br />
    ▫️ `velocities` is the velocities of each particles at each time step.  <br />
@@ -72,11 +72,11 @@ Unsed for the moment :  <br />
   ```
 
 4. Import **interactions** data :
-
-+ `inrtsPid` is the index of particles involve in this interaction.
-+ `intrsNorm` is the norm of the interction (unit vector in between the two particles).
-+ `intrsNF` is the normal force of the interaction.
-+ `intrsSF` is the shear force of teh interaction.
+    
+    + `inrtsPid` is the index of particles involve in this interaction.
+    + `intrsNorm` is the norm of the interction (unit vector in between the two particles).
+    + `intrsNF` is the normal force of the interaction.
+    + `intrsSF` is the shear force of teh interaction.
 
   
   ```ruby
@@ -91,7 +91,7 @@ Unsed for the moment :  <br />
 Call ```gl3f.main(data_class_name)``` to display with default setting.
 
 1. **Display setting** :
-
+    
    + `winSize` is the window size in pixels.
    + `cam_target` is the point where the view is pointing at the begining.
 
