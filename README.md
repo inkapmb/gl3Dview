@@ -71,14 +71,14 @@ You needed to import your data in the used classes, by following this schem.
     + `positions` is the position of each particles for each time step.
     + `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
-Unsed for the moment :  <br />
+   Unsed for the moment :  <br />
    ▫️ `velocities` is the velocities of each particles at each time step.  <br />
    ▫️ `rotation_velocities` is the rotation velocities of each particles at each time step. <br />
    ▫️ `forces` is the forces of each particles at each time step. <br />
    ▫️ `torques` is the torques of each particles at each time step. <br />
 
   
-&emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
+   &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
    
     ```ruby
     data_class_name.get_particles(states_type =          str[state_index],
@@ -99,6 +99,7 @@ Unsed for the moment :  <br />
     + `intrsNF` is the normal force of the interaction.
     + `intrsSF` is the shear force of teh interaction.
 
+   <br />
   
    ```ruby
    data_class_name.get_interactions(intrsPid =  int[time_index][interactions_index][p1_index:p2_index],
@@ -116,19 +117,23 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
    + `winSize` is the window size in pixels.
    + `cam_target` is the point where the view is pointing at the begining.
 
+   <br />
+
    ```ruby
    gl3f.main(data_class_name,
              winSize = [xSize, ySize], #int
              cam_target = [0, 0, 0])   #float
    ```
 
-2. **Interaction setting** :
+1. **Interaction setting** :
 
    + `nfLogNorm` set a log scale for normal force.
    + `nfSize` set the *minimum size first* and *maximum size second* for normal force.
    + `shearForceDisplay` allow to display shear interactions.
    + `sfLogNorm` set a log scale for shear force.
    + `sfSize` set the *minimum size first* and *maximum size second* for shear force.
+
+   <br />
 
    ```ruby
    gl3f.main(data_class_name,
@@ -152,6 +157,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
    + `negTimeKey` set the button to get to -1 time step.
    + `restartTimeKey` set the button to get to 0 time step.
 
+   <br />
 
    ```ruby
    gl3f.main(data_class_name,
