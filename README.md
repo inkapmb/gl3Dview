@@ -29,7 +29,7 @@ pyOpenGL
 ## Use
 
 1. Import function and class :
-   ```text
+   ```python
    import gl3Dview_class as gl3Dc
    import gl3Dview_function as gl3f
    ```
