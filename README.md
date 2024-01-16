@@ -24,6 +24,28 @@ pyOpenGL
 
 ## Use
 
+1. Import function and class :
+   ```ruby
+   import gl3Dview_class as gl3Dc
+   import gl3Dview_function as gl3f
+   ```
+
+2. Create class object :
+  ```ruby
+  data = gl3Dc.data_class()
+  ```
+
+3. Import data :
+   + *look data Importation part for more details*
+   ```ruby
+   data.get_time( dt=dt, dt_index=dt_index)
+   data.get_particles(state_types=state_types, states=states, radius=radius, positions=positions, orientations=orientations)
+   data.get_interactions(intrsPid=intrsPid, intrsNorm=intrsNorm, intrsNF=intrsNF, intrsSF=intrsSF)
+   ```
+
+5. 
+Call ```gl3f.main(data)``` to display with default setting.
+
 ### Data importation
 You needed to import your data in the used classes, by following this schem. 
 
