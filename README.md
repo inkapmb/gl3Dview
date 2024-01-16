@@ -53,10 +53,10 @@ You needed to import your data in the used classes, by following this schem.
 + `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
 *Unsed for the moment :
-  - `velocities` is the velocities of each particles at each time step.
-  - `rotation_velocities` is the rotation velocities of each particles at each time step.
-  - `forces` is the forces of each particles at each time step.
-  - `torques` is the torques of each particles at each time step.*
+   - `velocities` is the velocities of each particles at each time step.
+   - `rotation_velocities` is the rotation velocities of each particles at each time step.
+   - `forces` is the forces of each particles at each time step.
+   - `torques` is the torques of each particles at each time step.*
 
   
 &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
