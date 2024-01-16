@@ -89,7 +89,7 @@ You needed to import your data in the used classes, by following this schem.
                                   states =               str[time_index][particle_index],
                                   radius =               float[particle_index],
                                   positions =            float[time_index][particle_index][coord_index],
-                                  orientations =         float[time_index][particle_index][angle:axis_coord_index],
+                                  orientations =         float[time_index][particle_index][angle:axis_coord_index],)
                                   #velocities =          float[time_index][particle_index][coord_index],
                                   #rotation_velocities = float[time_index][particle_index][coord_index],
                                   #forces =              float[time_index][particle_index][coord_index],
