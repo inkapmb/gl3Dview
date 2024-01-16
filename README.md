@@ -1,6 +1,10 @@
 # gl3Dview
 3D viewer for granular material
 
+![Screen shot of the viewer (particles)](https://github.com/inkapmb/gl3Dview/blob/main/screenshot/particles.png)
+
+![Screen shot of the viewer (intearctions)](https://github.com/inkapmb/gl3Dview/blob/main/screenshot/interactions.png)
+
 ## Requirement
 
 Use ```pip install name``` to install needed package
