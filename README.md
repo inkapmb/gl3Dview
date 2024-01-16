@@ -52,7 +52,7 @@ You needed to import your data in the used classes, by following this schem.
 + `positions` is the position of each particles for each time step.
 + `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
-Unsed for the moment :
+Unsed for the moment :  <br />
   ▫️ `velocities` is the velocities of each particles at each time step.  <br />
   ▫️ `rotation_velocities` is the rotation velocities of each particles at each time step. <br />
   ▫️ `forces` is the forces of each particles at each time step. <br />
