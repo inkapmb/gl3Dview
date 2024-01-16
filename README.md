@@ -36,7 +36,7 @@ You needed to import your data in the used classes, by following this schem.
   data_class_name = gl3Dc.data_class()
   ```
 
-2. Import time data :
+2. Import **time** data :
   ```ruby
   data_class_name.get_time(dt =         float -> time_step,    
                            time_index = int[time_index])
