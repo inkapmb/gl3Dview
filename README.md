@@ -55,7 +55,7 @@ You needed to import your data in the used classes, by following this schem.
 `int[index_1][index_2][etc]` represent array with type `int` and index in order `[index_1][index_2]`.
 
 
-1. Create data class :
+1. Create data object :
 
    ```python
    data_class_name = gl3Dc.data_class()
