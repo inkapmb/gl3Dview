@@ -27,9 +27,7 @@ pyOpenGL
 ### Data importation
 You needed to import your data in the used classes, by following this schem. 
 
-`[index_1][index_2][etc]` represent list.
-
-`int[index_1, index_2, etc]` represent array with type and index in order.
+`int[index_1][index_2][etc]` represent array with type `int` and index in order `[index_1][index_2]`.
 
 
 1. Create data class :
@@ -41,7 +39,7 @@ You needed to import your data in the used classes, by following this schem.
 2. Import time data :
   ```ruby
   data_class_name.get_time(dt =         float -> time_step,    
-                           time_index = numpy.int[time_index])
+                           time_index = int[time_index])
   ```
    
 3. Import **particles** data :
@@ -62,15 +60,15 @@ Unsed for the moment :  <br />
 &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
    
   ```ruby
-  data_class_name.get_particles(states_type =          numpy.str[state_index],
-                                states =               numpy.str[time_index, particle_index],
-                                radius =               numpy.float[particle_index],
-                                positions =            numpy.float[time_index, particle_index, coord_index],
-                                orientations =         numpy.float[time_index, particle_index, angle:axis_coord_index],
-                                #velocities =          numpy.float[time_index, particle_index, coord_index],
-                                #rotation_velocities = numpy.float[time_index, particle_index, coord_index],
-                                #forces =              numpy.float[time_index, particle_index, coord_index],
-                                #torques =             numpy.float[time_index, particle_index, coord_index])
+  data_class_name.get_particles(states_type =          str[state_index],
+                                states =               str[time_index][particle_index],
+                                radius =               float[particle_index],
+                                positions =            float[time_index][particle_index, coord_index],
+                                orientations =         float[time_index][particle_index, angle:axis_coord_index],
+                                #velocities =          float[time_index][particle_index, coord_index],
+                                #rotation_velocities = float[time_index][particle_index, coord_index],
+                                #forces =              float[time_index][particle_index, coord_index],
+                                #torques =             float[time_index][particle_index, coord_index])
   ```
 
 4. Import **interactions** data :
@@ -82,24 +80,58 @@ Unsed for the moment :  <br />
 
   
   ```ruby
-  data_class_name.get_interactions(intrsPid =  [time_index][interactions_index] -> numpy.int[p1_index, p2_index],
-                                   intrsNorm = [time_index][interactions_index] -> numpy.float[coord_index],
-                                   intrsNF =   [time_index][interactions_index] -> numpy.float[coord_index],
-                                   intrsSF =   [time_index][interactions_index] -> numpy.float[coord_index],)
+  data_class_name.get_interactions(intrsPid =  int[time_index][interactions_index][p1_index:p2_index],
+                                   intrsNorm = float[time_index][interactions_index][coord_index],
+                                   intrsNF =   float[time_index][interactions_index][coord_index],
+                                   intrsSF =   float[time_index][interactions_index][coord_index],)
   ```
 
 ### Display 3D View
 
 Call ```gl3f.main(data_class_name)``` to display with default setting.
 
-Some setting can be apply as :
+1. **Display setting** :
+
+   + `winSize` is the window size in pixels.
+   + `cam_target` is the point where the view is pointing at the begining.
+
 ```ruby
 gl3f.main(data_class_name,
           winSize = [xSize, ySize], #int
           cam_target = [0, 0, 0])   #float
 ```
 
-Control can also be modified as :
+2. **Interaction setting** :
+
+   + `nfLogNorm` set a log scale for normal force.
+   + `nfSize` set the *minimum size first* and *maximum size second* for normal force.
+   + `shearForceDisplay` allow to display shear interactions.
+   + `sfLogNorm` set a log scale for shear force.
+   + `sfSize` set the *minimum size first* and *maximum size second* for shear force.
+
+```ruby
+gl3f.main(data_class_name,
+          nfLogNorm = False,         #bool    
+          nfSize = [0.05, 0.5],      #float
+                   
+          shearForceDisplay = False, #bool
+          sfLogNorm = False,         #bool
+          sfSize = [0.1, 0.5],)      #float
+```
+
+
+4. **Control Setting** :
+
+   + `rotButton` set the rotation button of the mouse.
+   + `dragButton` set the drag button of the mouse.
+   + `transFactor` set the transaltion speed (drag).
+   + `zoomFactor` set the zoom speed.
+   + `rotFactor` set the rotation speed.
+   + `posTimeKey` set the button to get to +1 time step.
+   + `negTimeKey` set the button to get to -1 time step.
+   + `restartTimeKey` set the button to get to 0 time step.
+
+
 ```ruby
 gl3f.main(data_class_name,
           rotButton = 0,                      #int
