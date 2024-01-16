@@ -35,13 +35,13 @@ pyOpenGL
    ```
 
 2. Create class object :
-   ```ruby
+   ```python
    data = gl3Dc.data_class()
    ```
 
 3. Import data :
    + *look data Importation part for more details*
-   ```ruby
+   ```python
    data.get_time( dt=dt, dt_index=dt_index)
    data.get_particles(state_types=state_types, states=states, radius=radius, positions=positions, orientations=orientations)
    data.get_interactions(intrsPid=intrsPid, intrsNorm=intrsNorm, intrsNF=intrsNF, intrsSF=intrsSF)
@@ -57,12 +57,12 @@ You needed to import your data in the used classes, by following this schem.
 
 1. Create data class :
 
-   ```ruby
+   ```python
    data_class_name = gl3Dc.data_class()
    ```
 
 2. Import **time** data :
-   ```ruby
+   ```python
    data_class_name.get_time(dt =         float -> time_step,    
                             time_index = int[time_index])
    ```
@@ -84,7 +84,7 @@ You needed to import your data in the used classes, by following this schem.
   
    &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
    
-    ```ruby
+    ```python
     data_class_name.get_particles(states_type =          str[state_index],
                                   states =               str[time_index][particle_index],
                                   radius =               float[particle_index],
@@ -105,7 +105,7 @@ You needed to import your data in the used classes, by following this schem.
 
    <br />
   
-   ```ruby
+   ```python
    data_class_name.get_interactions(intrsPid =  int[time_index][interactions_index][p1_index:p2_index],
                                     intrsNorm = float[time_index][interactions_index][coord_index],
                                     intrsNF =   float[time_index][interactions_index][coord_index],
@@ -123,7 +123,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
 
    <br />
 
-   ```ruby
+   ```python
    gl3f.main(data_class_name,
              winSize = [xSize, ySize], #int
              cam_target = [0, 0, 0])   #float
@@ -139,7 +139,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
 
    <br />
 
-   ```ruby
+   ```python
    gl3f.main(data_class_name,
              nfLogNorm = False,         #bool    
              nfSize = [0.05, 0.5],      #float
@@ -163,7 +163,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
 
    <br />
 
-   ```ruby
+   ```python
    gl3f.main(data_class_name,
              rotButton = 0,                      #int
              dragButton = 2,                     #int
