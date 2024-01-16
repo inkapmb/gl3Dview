@@ -44,7 +44,7 @@ You needed to import your data in the used classes, by following this schem.
                            time_index = numpy.int[time_index])
   ```
    
-3. Import particles data :
+3. Import **particles** data :
 
 + `states_type` is the list name of the differents state.
 + `states` is the differents state for each particles for each time step, default state is `''`.
@@ -52,11 +52,11 @@ You needed to import your data in the used classes, by following this schem.
 + `positions` is the position of each particles for each time step.
 + `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
-* Unsed for the moment :
-  - `velocities` is the velocities of each particles at each time step.
-  - `rotation_velocities` is the rotation velocities of each particles at each time step.
-  - `forces` is the forces of each particles at each time step.
-  - `torques` is the torques of each particles at each time step.*
+Unsed for the moment :
+  :white_small_square: `velocities` is the velocities of each particles at each time step.
+  :white_small_square: `rotation_velocities` is the rotation velocities of each particles at each time step.
+  :white_small_square: `forces` is the forces of each particles at each time step.
+  :white_small_square: `torques` is the torques of each particles at each time step.*
 
   
 &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
@@ -73,8 +73,7 @@ You needed to import your data in the used classes, by following this schem.
                                 #torques =             numpy.float[time_index, particle_index, coord_index])
   ```
 
-4. Import data interactions (in comming) :
-
+4. Import **interactions** data :
 
 + `inrtsPid` is the index of particles involve in this interaction.
 + `intrsNorm` is the norm of the interction (unit vector in between the two particles).
