@@ -63,7 +63,7 @@ You needed to import your data in the used classes, by following this schem.
 
 2. Import **time** data :
    ```python
-   data_class_name.get_time(dt =         float -> time_step,    
+   data_class_name.get_time(dt =         time_step,       #float    
                             time_index = int[time_index])
    ```
    
