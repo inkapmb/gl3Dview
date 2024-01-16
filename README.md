@@ -26,6 +26,9 @@ pyOpenGL
 
 ### Data importation
 You needed to import your data in the used classes, by following this schem. 
+
+`[index_1][index_2][etc]` represent list.
+
 `int[index_1, index_2, etc]` represent array with type and index in order.
 
 
@@ -43,21 +46,17 @@ You needed to import your data in the used classes, by following this schem.
    
 3. Import particles data :
 
-`states_type` is the list name of the differents state.
-
-`states` is the differents state for each particles for each time step, default state is `''`.
-
-`radius` is the particles radius for ech particles.
-
-`positions` is the position of each particles for each time step.
-
-`orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
++ `states_type` is the list name of the differents state.
++ `states` is the differents state for each particles for each time step, default state is `''`.
++ `radius` is the particles radius for ech particles.
++ `positions` is the position of each particles for each time step.
++ `orientation` is the orientation each particles for each time step, it must be like `[angle, x, y, z]` where the `angle` is in degree and `x, y, z` represent the rotation axis.
 
 *Unsed for the moment :
-`velocities` is the velocities of each particles at each time step.
-`rotation_velocities` is the rotation velocities of each particles at each time step.
-`forces` is the forces of each particles at each time step.
-`torques` is the torques of each particles at each time step.*
+- `velocities` is the velocities of each particles at each time step.
+- `rotation_velocities` is the rotation velocities of each particles at each time step.
+- `forces` is the forces of each particles at each time step.
+- `torques` is the torques of each particles at each time step.*
 
   
 &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
@@ -76,13 +75,10 @@ You needed to import your data in the used classes, by following this schem.
 
 4. Import data interactions (in comming) :
 
-   `inrtsPid` is the index of particles involve in this interaction.
-
-   `intrsNorm` is the norm of the interction (unit vector in between the two particles).
-
-   `intrsNF` is the normal force of the interaction.
-
-   `intrsSF` is the shear force of teh interaction.
+   + `inrtsPid` is the index of particles involve in this interaction.
+   + `intrsNorm` is the norm of the interction (unit vector in between the two particles).
+   + `intrsNF` is the normal force of the interaction.
+   + `intrsSF` is the shear force of teh interaction.
 
   ```ruby
   data_class_name.get_interactions(intrsPid =  [time_index][interactions_index] -> numpy.int[p1_index, p2_index],
