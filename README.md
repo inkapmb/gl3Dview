@@ -80,17 +80,17 @@ Unsed for the moment :  <br />
   
 &emsp; **It's better to adimentionalize particle size (radius) and position by the mean particle size.**
    
-   ```ruby
-   data_class_name.get_particles(states_type =          str[state_index],
-                                 states =               str[time_index][particle_index],
-                                 radius =               float[particle_index],
-                                 positions =            float[time_index][particle_index][coord_index],
-                                 orientations =         float[time_index][particle_index][angle:axis_coord_index],
-                                 #velocities =          float[time_index][particle_index][coord_index],
-                                 #rotation_velocities = float[time_index][particle_index][coord_index],
-                                 #forces =              float[time_index][particle_index][coord_index],
-                                 #torques =             float[time_index][particle_index][coord_index])
-   ```
+    ```ruby
+    data_class_name.get_particles(states_type =          str[state_index],
+                                  states =               str[time_index][particle_index],
+                                  radius =               float[particle_index],
+                                  positions =            float[time_index][particle_index][coord_index],
+                                  orientations =         float[time_index][particle_index][angle:axis_coord_index],
+                                  #velocities =          float[time_index][particle_index][coord_index],
+                                  #rotation_velocities = float[time_index][particle_index][coord_index],
+                                  #forces =              float[time_index][particle_index][coord_index],
+                                  #torques =             float[time_index][particle_index][coord_index])
+    ```
 
 4. Import **interactions** data :
     
