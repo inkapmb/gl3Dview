@@ -14,6 +14,7 @@ gl3Dview classes
 #classic
 import os
 import glm
+import time
 import numpy as np
 
 import pygame as pg
@@ -423,6 +424,14 @@ class control :
         self.mv_mat = (gl.GLdouble * 16)()
         self.p_mat  = (gl.GLdouble * 16)()
         self.v_rect = (gl.GLint * 4)()
+        
+        #init time value
+        self.accelerateTimeThld = 1 #second                                    threshofl to accelerate
+        self.accelerateFactor = 5
+        self.lastPosTK_Time = time.time()
+        self.lastNegTK_Time = time.time()
+        
+
     
     ### MOUSE CONTROL ###
     def getMouseControl(self) :
@@ -467,15 +476,43 @@ class control :
                     
     ### KEY CONTROL ###
     def getKeyControl(self):
+        
         #Manage time 
         keypress = pg.key.get_pressed()
         
         #forward
         if keypress[self.posTimeKey]:
-            self.time_index +=1
+            
+            #single press (one step)
+            if not self.posTimeKeyPressed :
+                self.time_index +=1
+            
+            #long press (accelerate)
+            elif time.time() - self.lastPosTK_Time > self.accelerateTimeThld :
+                self.time_index += self.accelerateFactor
+            
+            self.posTimeKeyPressed = True
+                
+        else :
+            self.posTimeKeyPressed = False
+            self.lastPosTK_Time = time.time()
+                
         #backward
         if keypress[self.negTimeKey]:
-            self.time_index -=1
+            #single press (one step)
+            if not self.negTimeKeyPressed :
+                self.time_index -=1
+            
+            #long press (accelerate)
+            elif time.time() - self.lastNegTK_Time > self.accelerateTimeThld :
+                self.time_index -= self.accelerateFactor
+            
+            self.negTimeKeyPressed = True
+                
+        else :
+            self.negTimeKeyPressed = False
+            self.lastNegTK_Time = time.time()
+            
         #restart
         if keypress[self.restartTimeKey] :
             self.time_index = 0
