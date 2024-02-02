@@ -31,7 +31,7 @@ pyOpenGL
 1. Import function and class :
    ```python
    import gl3Dview_class as gl3Dc
-   import gl3Dview_function as gl3f
+   import gl3Dview_function as gl3Df
    ```
 
 2. Create class object :
@@ -47,7 +47,7 @@ pyOpenGL
    data.get_interactions(intrsPid=intrsPid, intrsNorm=intrsNorm, intrsNF=intrsNF, intrsSF=intrsSF)
    ```
 
-5. Call ```gl3f.main(data)``` to display with default setting.
+5. Call ```gl3Df.main(data)``` to display with default setting.
 
 ### Data importation
 You needed to import your data in the used classes, by following this schem. 
@@ -114,7 +114,7 @@ You needed to import your data in the used classes, by following this schem.
 
 ### Display 3D View
 
-Call ```gl3f.main(data_class_name)``` to display with default setting.
+Call ```gl3Df.main(data_class_name)``` to display with default setting.
 
 1. **Display setting** :
     
@@ -124,7 +124,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
    <br />
 
    ```python
-   gl3f.main(data_class_name,
+   gl3Df.main(data_class_name,
              winSize = [xSize, ySize], #int
              cam_target = [0, 0, 0])   #float
    ```
@@ -140,7 +140,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
    <br />
 
    ```python
-   gl3f.main(data_class_name,
+   gl3Df.main(data_class_name,
              nfLogNorm = False,         #bool    
              nfSize = [0.05, 0.5],      #float
                    
@@ -164,7 +164,7 @@ Call ```gl3f.main(data_class_name)``` to display with default setting.
    <br />
 
    ```python
-   gl3f.main(data_class_name,
+   gl3Df.main(data_class_name,
              rotButton = 0,                      #int
              dragButton = 2,                     #int
          
