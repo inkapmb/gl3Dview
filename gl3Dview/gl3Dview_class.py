@@ -110,25 +110,25 @@ class data_class :
         min_sf = None
         
         for tidx in range(self.step_nb) :
-            for pidx in range(len(self.intrs_pid[tidx])) :
-                for iidx in range(len(self.intrs_pid[tidx][pidx])) :
+            if len(self.intrs_pid[tidx]) :
+                
+                #max
+                if np.linalg.norm(self.intrs_nf[tidx], axis = 1).max() > max_nf :
+                    max_nf = np.linalg.norm(self.intrs_nf[tidx], axis = 1).max()
+                if np.linalg.norm(self.intrs_sf[tidx], axis = 1).max() > max_sf :
+                    max_sf = np.linalg.norm(self.intrs_sf[tidx], axis = 1).max()
+                
+                #min
+                if min_nf == None :
+                    min_nf = np.linalg.norm(self.intrs_nf[tidx], axis = 1).min()
+                elif np.linalg.norm(self.intrs_nf[tidx], axis = 1).min() < min_nf : 
+                    min_nf = np.linalg.norm(self.intrs_nf[tidx], axis = 1).min()
                     
-                    #max
-                    if np.linalg.norm(self.intrs_nf[tidx][pidx][iidx]) > max_nf :
-                        max_nf = np.linalg.norm(self.intrs_nf[tidx][pidx][iidx])
-                    if np.linalg.norm(self.intrs_sf[tidx][pidx][iidx]) > max_sf :
-                        max_sf = np.linalg.norm(self.intrs_sf[tidx][pidx][iidx])
-                        
-                    #min
-                    if min_nf == None :
-                        min_nf = np.linalg.norm(self.intrs_nf[tidx][pidx][iidx])
-                    elif np.linalg.norm(self.intrs_nf[tidx][pidx][iidx]) < min_nf :
-                        min_nf = np.linalg.norm(self.intrs_nf[tidx][pidx][iidx])
-                        
-                    if min_sf == None :
-                        min_sf = np.linalg.norm(self.intrs_sf[tidx][pidx][iidx])
-                    if np.linalg.norm(self.intrs_sf[tidx][pidx][iidx]) < min_sf :
-                        min_sf = np.linalg.norm(self.intrs_sf[tidx][pidx][iidx])
+                if min_sf == None :
+                    min_sf = np.linalg.norm(self.intrs_sf[tidx], axis = 1).min()
+                elif np.linalg.norm(self.intrs_sf[tidx], axis = 1).min() < min_sf : 
+                    min_sf = np.linalg.norm(self.intrs_sf[tidx], axis = 1).min()
+            
                         
         self.maxNF = max_nf
         self.minNF = min_nf
